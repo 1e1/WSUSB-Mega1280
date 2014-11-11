@@ -22,19 +22,19 @@ void USlave::check()
     // schedules
     Core::copyToBuffer_P(PSTR("\n=== SCHEDULES ===\n"));
     // add IP info
-    Warehouse_FOREACH(PinoutSchedule, Core::schedules, element)
+    Warehouse_FOREACHPP(PinoutSchedule, Core::schedules, element)
       USlave::statusLine(element);
-    Warehouse_ENDFOREACH
+    Warehouse_ENDFOREACHPP
     // pulses
     Core::copyToBuffer_P(PSTR("\n=== PULSES ===\n"));
-    Warehouse_FOREACH(PinoutPulse, Core::pulses, element)
+    Warehouse_FOREACHPP(PinoutPulse, Core::pulses, element)
       USlave::statusLine(element);
-    Warehouse_ENDFOREACH
+    Warehouse_ENDFOREACHPP
     // digitals
     Core::copyToBuffer_P(PSTR("\n=== DIGITALS ===\n"));
-    Warehouse_FOREACH(PinoutDigital, Core::digitals, element)
+    Warehouse_FOREACHPP(PinoutDigital, Core::digitals, element)
       USlave::statusLine(element);
-    Warehouse_ENDFOREACH
+    Warehouse_ENDFOREACHPP
     // messages
     /*
     Core::copyToBuffer_P(PSTR("\n=== MESSAGES ===\n"));

@@ -19,10 +19,34 @@ class USlave {
   static void check();
   __attribute__((always_inline)) static inline void uncheck()               { Serial.flush(); };
 
-  protected:
-  static void statusLine(Pinout* pinout);
-
 };
+
+
+
+
+/***********************************************************
+ *                         PUBLIC                          *
+ **********************************************************/
+
+
+
+
+void USlave::check()
+{
+  if (Serial.available()) {
+    LOGLN(">>> USB");
+    
+    Core::setStream(&Serial);
+    Core::processLine();
+    
+    Core::unbuffer();
+    Core::stateToBuffer();
+    Core::copyToBuffer('\n');
+    Core::sendBuffer();
+    
+    LOGLN("<<< USB");
+  }
+}
 
 
 #endif

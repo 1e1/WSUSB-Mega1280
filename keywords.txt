@@ -6,14 +6,12 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-FastTimer	KEYWORD1
+USlave	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
 begin	KEYWORD2
-update	KEYWORD2
-getDst	KEYWORD2
-getDayOfWeek	KEYWORD2
-getHour	KEYWORD2
+check	KEYWORD2
+uncheck	KEYWORD2

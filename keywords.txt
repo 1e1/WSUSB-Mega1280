@@ -11,7 +11,3 @@ USlave	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-
-begin	KEYWORD2
-check	KEYWORD2
-uncheck	KEYWORD2

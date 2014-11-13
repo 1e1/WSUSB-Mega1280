@@ -12,41 +12,13 @@
 
 
 
-class USlave {
+class USlave : public Circuit {
 
   public:
-  __attribute__((always_inline)) static inline void begin()                 { Serial.begin(USB_SPEED); LOGLN("listen USB"); };
   static void check();
-  __attribute__((always_inline)) static inline void uncheck()               { Serial.flush(); };
+  __attribute__((always_inline)) static inline void clean()               { Serial.flush(); };
 
 };
-
-
-
-
-/***********************************************************
- *                         PUBLIC                          *
- **********************************************************/
-
-
-
-
-void USlave::check()
-{
-  if (Serial.available()) {
-    LOGLN(">>> USB");
-    
-    Core::setStream(&Serial);
-    Core::processLine();
-    
-    Core::unbuffer();
-    Core::stateToBuffer();
-    Core::copyToBuffer('\n');
-    Core::sendBuffer();
-    
-    LOGLN("<<< USB");
-  }
-}
 
 
 #endif

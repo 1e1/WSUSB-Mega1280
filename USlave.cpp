@@ -10,18 +10,6 @@
 
 
 
-USlave::USlave()
-{
-  Serial.begin(USB_SPEED);
-  LOGLN("listen USB");
-}
-
-
-USlave::~USlave()
-{
-}
-
-
 void USlave::check()
 {
   if (Serial.available()) {

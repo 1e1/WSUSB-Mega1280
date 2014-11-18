@@ -23,7 +23,7 @@ class USlave : public Circuit {
   USlave(const unsigned long baud, const uint8_t interface);
 
   void check();
-  __attribute__((always_inline)) inline void clean() { this->serial->flush(); };
+  inline void clean();
 
   protected:
   HardwareSerial* _serial;

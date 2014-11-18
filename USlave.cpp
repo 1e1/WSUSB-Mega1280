@@ -63,3 +63,9 @@ void USlave::check()
     Core::sendBuffer();
   }
 }
+
+
+void USlave::clean()
+{
+  this->_serial->flush();
+}

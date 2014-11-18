@@ -9,16 +9,24 @@
 #include <Arduino.h>
 #include <CoreSlave.h>
 
-#include "config.h"
+
+
+//#define USB_SPEED     115200
+//#define USB_SPEED     9600
 
 
 
-class USlave {
+class USlave : public Circuit {
 
   public:
-  __attribute__((always_inline)) static inline void begin()               { Serial.begin(USB_SPEED); LOGLN("listen USB"); };
-  static void check();
-  __attribute__((always_inline)) static inline void clean()               { Serial.flush(); };
+  USlave(const unsigned long baud);
+  USlave(const unsigned long baud, const uint8_t interface);
+
+  void check();
+  __attribute__((always_inline)) inline void clean() { this->serial->flush(); };
+
+  protected:
+  HardwareSerial* _serial;
 
 };
 

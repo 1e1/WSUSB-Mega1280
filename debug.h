@@ -6,6 +6,7 @@
 
 /** DEBUGGING TOOLS **/
 #if DEBUG
+  Serial.begin(9600);
   #define LOG(...)    Serial.print  (__VA_ARGS__)
   #define LOGLN(...)  Serial.println(__VA_ARGS__)
   #define WAIT(ms)    delay(ms)

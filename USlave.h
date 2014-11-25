@@ -16,7 +16,7 @@
 
 
 
-class USlave : public Circuit {
+class USlave : public AbstractCircuit {
 
   public:
   USlave(const unsigned long baud);
